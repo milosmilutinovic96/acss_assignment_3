@@ -1,0 +1,81 @@
+:root {
+    --fluid-text-size: calc(13px + (21 - 13) * ((100vw - 320px) / (1600 - 320)));
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: sans-serif;
+    font-size: var(--fluid-text-size);
+}
+
+#main-container {
+    max-width: 960px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: grid;
+    gap: 20px;
+
+}
+
+#images-container {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(5, 120px);
+}
+
+.image-card {
+    height: 96px;
+    width: 120px;
+    border-radius: 8px;
+    border: 1px solid lightgray;
+    background-image: url(./placeholder-image.png);
+    background-size: contain;
+    background-color: #6ba2d9;
+}
+
+.image-card::after {
+    content: 'Image Title';
+    background-color: white;
+    height: 20px;
+    display: block;
+    position: relative;
+    top: calc(100% - 25px);
+    text-align: center;
+    font-size: small;
+    border-radius: 0 0 8px 8px;
+    padding-top: 5px;
+}
+
+#title {
+    font-weight: normal;
+}
+
+#paragraph {
+    width: 720px;
+}
+
+@media screen and (max-width: 768px) {
+    #images-container {
+        grid-template-columns: repeat(3, 120px);
+    }
+    #paragraph {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #images-container {
+        grid-template-columns: 240px;
+    }
+
+    .image-card {
+        width: 240px;
+        height: 192px;
+    }
+
+    #paragraph {
+        width: 240px;
+    }
+}
